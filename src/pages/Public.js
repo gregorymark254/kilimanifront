@@ -1,82 +1,87 @@
-import React, { useState, useEffect } from 'react'
-import axios from "./api/api";
-import { Link } from 'react-router-dom'
-import Polls from './Polls'
-import { AuthState } from './Context/AuthContext'
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getPosts, likePost } from '../redux/post/postSlice';
 
 const Public = () => {
+  const dispatch = useDispatch();
+  const publicPosts = useSelector((state) => state.posts.posts);
+  const isLoading = useSelector((state) => state.posts.isLoading);
 
-  const [publicPost, setPublicpost] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const { state : { like }, dispatch } = AuthState()
+  useEffect(() => {
+    dispatch(getPosts());
+  }, [dispatch]);
 
-
-  //getting billing data
-  const getPublicpost = async () => {
-    const response = await axios.get("/api/v4/all");
-    setPublicpost(response.data);
+  const handleCommentClick = (postId) => {
+    // Handle comment button click, e.g., navigate to the comment page for the post
+    console.log(`Comment clicked for post ${postId}`);
   };
 
-  useEffect(() => {
-    getPublicpost();
-  }, []);
-
-  //seting loading
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
-  })
+  const handleLikeClick = async (postId) => {
+    try {
+      // Dispatch the likePost action with the postId
+      await dispatch(likePost(postId));
+    } catch (error) {
+      // Handle any errors if necessary
+      console.error('Error liking the post:', error);
+    }
+  };
 
   return (
-    <div className='bg-slate-100'>
+    <div className="bg-slate-100">
       <div className="container mx-auto p-4">
-        <h1 class="text-3xl font-bold text-center mb-10 mt-8">Announcement</h1><br/>
+        <h1 className="text-3xl font-bold text-center mb-10 mt-8">Announcement</h1>
         <div className="flex flex-wrap justify-center gap-6 mb-10">
-          <div className='bg-white rounded-lg w-full md:w-1/2 lg:w-1/3'>
+          <div className="bg-white rounded-lg w-full md:w-1/2 lg:w-1/3">
             <div className="p-4">
-              <h3><b>Open For Discussions</b></h3>
-              <h4><u><i>Admin Announcement</i></u></h4>
+              <h3>
+                <b>Open For Discussions</b>
+              </h3>
+              <h4>
+                <u>
+                  <i>Admin Announcement</i>
+                </u>
+              </h4>
               <div>
                 {isLoading ? (
                   <div>
-                    <p>loading...</p>
+                    <p>Loading...</p>
                   </div>
                 ) : (
                   <div>
-                    {
-                      publicPost.map((post,index) => (
-                        <div key={post._id} className="p-4 space-y-1">
-                          <h4><b>{post.radio}</b></h4>
-                          <h5>{post.title}</h5>
-                          <p>{post.message}</p>
-                          <span>{post.createdAt}</span>
-                          <div className="flex flex-wrap items-center space-x-2">
-                            <Link to={`/mycomment/${post._id}`} className="bg-blue-500 p-1 text-md text-white">Comment</Link>
-                            {like.some((d) => d._id === post._id) ? (
-                              <button onClick={() => {dispatch({type: 'UNLIKE', payload:post})}}  className="bg-orange-500 p-1 text-md text-white">Unlike</button>
-                            ) : (
-                              <button onClick={() => {dispatch({type: 'LIKE', payload:post})}} className="bg-red-500 p-1 text-md text-white">Like</button>
-                            )} 
-                            <span>{like.filter((d) => d._id === post._id).length}</span>
-                          </div>
-                          <br />
-                          <hr />
+                    {publicPosts.map((post) => (
+                      <div key={post.id} className="p-4 space-y-1">
+                        <h4>
+                          <b>{post.title}</b>
+                        </h4>
+                        <h5>{post.text}</h5>
+                        <span>{post.created_at}</span>
+                        <div className="flex flex-wrap items-center space-x-2">
+                          <button
+                            onClick={() => handleCommentClick(post.id)}
+                            className="bg-blue-500 p-1 text-md text-white"
+                          >
+                            Comment
+                          </button>
+                          <button
+                            onClick={() => handleLikeClick(post.id)}
+                            className="bg-red-500 p-1 text-md text-white"
+                          >
+                            Like
+                          </button>
                         </div>
-                      ))
-                    } 
+                        <br />
+                        <hr />
+                      </div>
+                    ))}
                   </div>
                 )}
               </div>
             </div>
           </div>
-          <div className='bg-white rounded-lg w-full md:w-1/3 lg:w-1/3'>
-            <Polls/>
-          </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Public
+export default Public;
