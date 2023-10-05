@@ -1,6 +1,8 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
+const BASE_URL = 'http://localhost:3000/api/v1/users/1/posts/1/comments'
+
 const initialState = {
     comments: [],
     isLoading: false,
@@ -13,20 +15,28 @@ export const getComments = createAsyncThunk('comment/getComments', async () => {
     return result.data;
 })
 
+export const createComment = (data) => async () => {
+  const { comment, text } = data
+  const newComment = { comment_id: comment.id, text}
+
+  const response = await axios.post(`${BASE_URL}/id`, newComment)
+  return response.data
+}
+
   const commentSlice = createSlice({
-    name: 'users',
+    name: 'comments',
     initialState,
     extraReducers: (builders) => {
-        builders.addCase(getUsers.pending, (state, action) => {
+        builders.addCase(getComments.pending, (state, action) => {
             state.isLoading = true
         });
 
-      builders.addCase(getUsers.fulfilled, (state, action) => {
+      builders.addCase(getComments.fulfilled, (state, action) => {
         state.comments = action.payload;
         state.isLoading = false
       });
 
-      builders.addCase(getUsers.rejected, (state, action) => {
+      builders.addCase(getComments.rejected, (state, action) => {
         state.isLoading = false
         state.comments = []
       });
