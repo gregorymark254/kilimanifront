@@ -15,13 +15,13 @@ export const getPosts = createAsyncThunk('post/getPosts', async () => {
     return result.data;
 })
 
-export const createPost = (data) => async () => {
-  const { post, title, text } = data
-  const newPost = { post_id: post.id, title, text}
-
-  const response = await axios.post(BASE_URL, newPost)
-  return response.data
-}
+export const createPost = (postData) => async (dispatch) => {
+  try {
+    const response = await axios.post(BASE_URL, { post: postData });
+    dispatch(getPosts());
+  } catch (error) {
+  }
+};
 
   const postSlice = createSlice({
     name: 'posts',
