@@ -3,6 +3,7 @@ import Home from './pages/Home'
 import Announcements from './pages/Announcements'
 import MyComment from './pages/MyComment'
 import Comment from './pages/Comment'
+import Donate from './pages/Donate'
 import Help from './pages/Help'
 import Events from './pages/Events'
 import New from './pages/New'
@@ -34,6 +35,7 @@ function App() {
         <Route path="/announcements" element={<Announcements />} />
         <Route path="/comment/:id" element={<Comment />} />
         <Route path="/mycomment/:id" element={<MyComment />} />
+        <Route path="/donate" element={<Donate />} />
         <Route path="/help" element={<Help />} />
         <Route path="/events" element={<Events />} />
         <Route path="/new" element={<New />} />
