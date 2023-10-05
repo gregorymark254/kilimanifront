@@ -15,7 +15,7 @@ const Home = () => {
           <div className="container mx-auto p-4">
             <div className="flex item-center justify-center">
               <div>
-                <h1><b>KH</b> community</h1>
+                <h1 className="text-5xl"><b>KH</b> community</h1>
                 <br />
                 <div>
                   <form action="">

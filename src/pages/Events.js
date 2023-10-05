@@ -50,7 +50,7 @@ const Events = () => {
                         <h3>{event.title}</h3>
                         <p>{event.location}</p>
                         <br />
-                        <details>
+                        <details className="hover:cursor-pointer">
                           <summary>More Details</summary>
                           <p>{event.about}</p>
                         </details>
