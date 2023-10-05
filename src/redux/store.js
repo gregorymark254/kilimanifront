@@ -1,16 +1,18 @@
-import { configureStore } from '@reduxjs/toolkit';
-import postReducer from './post/postSlice';
-import commentReducer from './comment/commentSlice';
-import userReducer from './user/userSlice';
-import likeReducer from './like/likeSlice';
+import { configureStore, applyMiddleware } from '@reduxjs/toolkit';
+import thunkMiddleware from 'redux-thunk';
+import postReducer from '../redux/post/postSlice'
+import userReducer from '../redux/user/userSlice'
+import commentReducer from '../redux/comment/commentSlice'
+import likeReducer from '../redux/comment/commentSlice'
 
 const store = configureStore({
-    reducer: {
-      posts: postReducer,
-      users: userReducer,
-      comments: commentReducer,
-      likes: likeReducer,
-    },
-  });
-  
-  export default store;
+  reducer: {
+    posts: postReducer,
+    users: userReducer,
+    comments: commentReducer,
+    likes: likeReducer,
+  },
+  middleware: [thunkMiddleware],
+});
+
+export default store;
