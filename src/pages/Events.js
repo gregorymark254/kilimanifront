@@ -25,9 +25,9 @@ const Events = () => {
   return (
     <div className='bg-slate-100 min-h-screen'>
       <div className="container mx-auto p-4">
-        <h1 class="text-center text-3xl font-bold mt-5">Events</h1><br />
+        <h1 class="text-center text-3xl mt-5">Events</h1><br />
         <div className="space-y-5 lg:mx-44 lg:w-2/3 mb-10">
-          <h3>Upcoming Events</h3>
+          <span className="text-xl font-light">Upcoming Events</span>
             {isLoading ? (
               <div>
                 <p>loading...</p>
