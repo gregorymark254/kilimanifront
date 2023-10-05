@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useNavigate,Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { AuthState } from '../Context/AuthContext'
 
 const Admin = () => {
@@ -29,11 +29,16 @@ const Admin = () => {
         <h3 class="text-center">Welcome {userInfo.email}</h3>
 
         <div>
-          <Link to="/users">Users</Link><br />
-          <Link to="/blogs">Community Forum</Link><br />
-          <Link to="/proposals">View Requests</Link><br />
-          <Link to="/createvote">Create Vote</Link><br />
-          <Link to="/addevents">Add Events</Link><br />
+          <span><u>Use this links to navigate</u></span>
+          <div className="p-4">
+            <ul>
+              <li className="hover:underline"><a href="/users">&#x27A4; Users</a></li>
+              <li className="hover:underline"><a href="/blogs">&#x27A4; Community Forum</a></li>
+              <li className="hover:underline"><a href="/proposals">&#x27A4; View Requests</a></li>
+              <li className="hover:underline"><a href="/createvote">&#x27A4; Create Vote</a></li>
+              <li className="hover:underline"><a href="/addevents">&#x27A4; Add Events</a></li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>

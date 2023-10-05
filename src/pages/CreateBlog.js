@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { createPost } from '../redux/post/postSlice';
+import { PiUsersFourFill } from "react-icons/pi";
 
 const CreateBlog = ({post}) => {
   const dispatch = useDispatch();
@@ -15,9 +16,12 @@ const CreateBlog = ({post}) => {
   };
 
   return (
-    <div className='bg-slate-100'>
+    <div className='bg-slate-100 min-h-screen'>
       <div className="container mx-auto p-4">
-        <h2 className="text-center my-10">Public Participation</h2>
+        <div className="flex justify-center mt-8">
+          <h1 className="text-blue-600 text-5xl"><PiUsersFourFill/></h1>
+        </div>
+        <h2 className="text-center p-4 font-light">Public Participation</h2>
         <div className="flex flex-wrap items-center justify-center mb-20">
           <div className="bg-white p-4 rounded-lg">
             <form onSubmit={handleSubmit}>
@@ -47,7 +51,7 @@ const CreateBlog = ({post}) => {
                 ></textarea>
               </div>
               <div className="p-2">
-                <button className="py-3 px-5 bg-blue-600 text-white rounded-lg">Post</button>
+                <button className="py-2 px-5 bg-blue-600 text-white rounded-lg w-full hover:bg-blue-700">Post</button>
               </div>
             </form>
           </div>

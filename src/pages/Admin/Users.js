@@ -40,12 +40,12 @@ const Users = () => {
   return (
     <div className="min-h-screen">
       <div className="container mx-auto p-4">
-        <div className="text-center mb-10">
+        <div className="text-center my-10">
           <h1>Users</h1>
         </div>
         <div className="border border-slate-300 ">
           <table className="text-sm text-left w-full">
-            <thead className="text-gray-700 bg-gray-50 ">
+            <thead className="text-gray-700 bg-blue-200">
               <tr>
                 <th className="py-3 px-6">No.</th>
                 <th className="py-3 px-6">
@@ -109,8 +109,8 @@ const Users = () => {
                       <td className="py-4 px-6">{user.createdAt}</td>
                       <td className="py-4 px-6">{user.createdAt}</td>
                       <td className="flex items-center text-xl py-4 px-6 space-x-2">
-                        <Link to={`/users/edit/${user._id}`} className="bg-teal-500 p-1 text-md text-white mr-1"><FaEdit/></Link>
-                        <button onClick={() => deleteUser(user._id)} className="bg-red-500 p-1 text-md text-white"><MdDelete/></button>
+                        <Link to={`/users/edit/${user._id}`} className="bg-teal-500 p-2 text-md text-white mr-1 rounded-lg"><FaEdit/></Link>
+                        <button onClick={() => deleteUser(user._id)} className="bg-red-500 p-2 rounded-lg text-md text-white"><MdDelete/></button>
                       </td>
                     </tr>
                   ))

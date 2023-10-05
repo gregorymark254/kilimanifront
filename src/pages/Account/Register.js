@@ -2,6 +2,7 @@ import React,{ useState }  from 'react'
 import { Link,useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify';
 import axios from '../api/api'
+import { FaUsers } from "react-icons/fa";
 
 const URL = '/api/v1/register'
 
@@ -44,13 +45,15 @@ const Register = () => {
   };
 
   return (
-    <div>
+    <div className='bg-slate-100'>
       <section className="min-h-screen">
         <div className="container mx-auto p-4">
           <div className="flex items-center justify-center my-10">
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg">
+              <div className="flex justify-center mt-4">
+                <h1 className="text-blue-700"><FaUsers/></h1>
+              </div>
               <h4 className="text-center">Register your account..</h4>
-              <br />
               <div className="p-2">
                 <label htmlFor="name">
                   <input 
@@ -113,7 +116,7 @@ const Register = () => {
               </div>
               <span className="px-2">Already have an account?<Link to="/login"><u>Login</u></Link></span>
               <div className="p-2">
-                <button className="bg-blue-500 text-white px-5 py-2 rounded-lg hover:bg-blue-400">Sign Up</button>
+                <button className="bg-blue-700 text-white px-5 py-2 rounded-lg w-full hover:bg-blue-600">Sign Up</button>
               </div>
             </form>
           </div>

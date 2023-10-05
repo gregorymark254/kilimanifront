@@ -3,6 +3,7 @@ import { Link,useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify';
 import axios from '../api/api'
 import { AuthState } from '../Context/AuthContext'
+import { FaUsers } from "react-icons/fa";
 
 const URL = '/api/v1/login'
 
@@ -54,11 +55,10 @@ const Login = () => {
         <div className="container mx-auto p-4">
           <div className="flex items-center justify-center my-10">
             <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg">
-              <div className="flex justify-center ">
-                <img width={50} src="https://static.vecteezy.com/system/resources/previews/011/423/100/original/kh-logo-k-h-design-white-kh-letter-kh-letter-logo-design-initial-letter-kh-linked-circle-uppercase-monogram-logo-vector.jpg" alt="" />
+              <div className="flex justify-center mt-4">
+                <h1 className="text-blue-700"><FaUsers/></h1>
               </div>
               <h4 className="text-center">Log in to your account..</h4>
-              <br />
               <div className="p-2">
                 <label htmlFor="email">
                   <input 
@@ -83,7 +83,7 @@ const Login = () => {
               </div>
               <span className="px-2">Don't have an account?<Link to="/register"><u>Sign Up</u></Link></span>
               <div className="p-2">
-                <button className="bg-blue-500 text-white px-5 py-2 rounded-lg hover:bg-blue-400">Login</button>
+                <button className="bg-blue-700 text-white px-5 py-2 rounded-lg w-full hover:bg-blue-600">Login</button>
               </div>
             </form>            
           </div>

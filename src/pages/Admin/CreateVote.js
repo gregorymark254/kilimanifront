@@ -106,7 +106,7 @@ const CreateVote = () => {
           ) : (
             <div className="border border-slate-300 ">
               <table className="text-sm text-left w-full">
-                <thead className="text-gray-700 bg-gray-50 ">
+                <thead className="text-gray-700 bg-blue-200">
                   <tr>
                     <th className="py-3 px-6">No.</th>
                     <th className="py-3 px-6">
@@ -156,8 +156,8 @@ const CreateVote = () => {
                           <td className="py-4 px-6">{votes.res}</td>
                           <td className="py-4 px-6">{votes.createdAt}</td>
                           <td className="flex items-center text-xl py-4 px-6 space-x-2">
-                            <Link to={`/votes/edit/${votes._id}`} className="bg-teal-500 p-1 text-md text-white mr-1"><FaEdit/></Link>
-                            <button onClick={() => deleteVotes(votes._id)} className="bg-red-500 p-1 text-md text-white"><MdDelete/></button>
+                            <Link to={`/votes/edit/${votes._id}`} className="bg-teal-500 p-2 rounded-lg text-md text-white mr-1"><FaEdit/></Link>
+                            <button onClick={() => deleteVotes(votes._id)} className="bg-red-500 p-2 rounded-lg text-md text-white"><MdDelete/></button>
                           </td>
                         </tr>
                       ))
