@@ -1,34 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { PiUsersFourFill,PiSpeakerSimpleSlashBold } from "react-icons/pi";
 import { FaHandsClapping,FaHeadset } from "react-icons/fa6";
 import { FaDonate } from "react-icons/fa";
 import { MdOutlineDateRange } from "react-icons/md";
 import { Link } from "react-router-dom";
-import axios from "./api/api";
-import { AuthState } from './Context/AuthContext'
 
 const Home = () => {
-
-  const [blogs, setBlogs] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const { state : { like }, dispatch } = AuthState()
-
-  //getting billing data
-  const getBlog = async () => {
-    const response = await axios.get("/api/v2/all");
-    setBlogs(response.data);
-  };
-
-  useEffect(() => {
-    getBlog();
-  }, []);
-
-  //seting loading
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
-  })
 
   return (
     <div className='bg-slate-100'>
@@ -109,48 +86,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-      
-      {/* Discussions */}
-      <section>
-        <div className="container mx-auto p-4">
-          <div className='bg-white lg:mx-72 rounded-lg mb-20'>
-            <div className="p-4">
-            {/* <h3><b>Open For Discussions</b></h3>
-            <h4><u><i>Public Activities</i></u></h4> */}
-            {/* <div>
-              {isLoading ? (
-                <div>
-                  <p>loading...</p>
-                </div>
-              ) : (
-                <div>
-                  {
-                    blogs.map((blog,index) => (
-                      <div key={blog._id} className="p-4 space-y-1">
-                        <h4><b>{blog.subject}</b></h4>
-                        <h5>{blog.description}</h5>
-                        <span>{blog.createdAt}</span>
-                        <div className="flex flex-wrap items-center space-x-2">
-                          <Link to={`/comment/${blog._id}`} className="bg-blue-500 p-1 text-md text-white">Comment</Link>
-                          {like.some((d) => d._id === blog._id) ? (
-                            <button onClick={() => {dispatch({type: 'UNLIKE', payload:blog})}}  className="bg-orange-500 p-1 text-md text-white">Unlike</button>
-                          ) : (
-                            <button onClick={() => {dispatch({type: 'LIKE', payload:blog})}} className="bg-red-500 p-1 text-md text-white">Like</button>
-                          )} 
-                          <span>{like.filter((d) => d._id === blog._id).length}</span>
-                        </div>
-                        <br />
-                        <hr />
-                      </div>
-                    ))
-                  }   
-                </div>
-              )}
-            </div> */}
-           </div>
-          </div>
-        </div>
-      </section> 
     </div>
   )
 }

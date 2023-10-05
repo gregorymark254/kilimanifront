@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { toast } from 'react-toastify';
-import axios from './api/api'
+import axios from 'axios'
 
 const Donate = () => {
 
@@ -10,7 +10,7 @@ const Donate = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const response = await axios.post("/api/v7/stk",
+      const response = await axios.post("http://localhost:4000/api/v7/stk",
       JSON.stringify({phone,amount}),
       {
         headers: {'Content-Type' : 'application/json'},

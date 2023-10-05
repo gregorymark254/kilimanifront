@@ -41,7 +41,7 @@ const Events = () => {
                         <img
                           width={400}
                           height={300}
-                          src={`data:image/${event.image.contentType};base64,${event.image.data}`}
+                          src={event.image}
                           alt="eventimage"
                         />
                       </div>
