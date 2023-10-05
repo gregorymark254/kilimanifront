@@ -32,3 +32,5 @@ export const getUsers = createAsyncThunk('user/getUsers', async () => {
       });
     },
   });
+
+  export default userSlice.reducer;
