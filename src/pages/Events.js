@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from "./api/api";
+import { MdEventAvailable } from "react-icons/md";
 
 const Events = () => {
 
@@ -25,7 +26,10 @@ const Events = () => {
   return (
     <div className='bg-slate-100 min-h-screen'>
       <div className="container mx-auto p-4">
-        <h1 class="text-center text-3xl mt-5">Events</h1><br />
+        <div className="flex justify-center mt-4">
+          <h1 className="text-blue-700"><MdEventAvailable/></h1>
+        </div>
+        <h1 class="text-center text-3xl">Events</h1><br />
         <div className="space-y-5 lg:mx-44 lg:w-2/3 mb-10">
           <span className="text-xl font-light">Upcoming Events</span>
             {isLoading ? (
@@ -45,7 +49,7 @@ const Events = () => {
                           alt="eventimage"
                         />
                       </div>
-                      <div>
+                      <div className="w-2/4">
                         <h6 className="text-blue-600">{event.date}</h6>
                         <h3>{event.title}</h3>
                         <p>{event.location}</p>

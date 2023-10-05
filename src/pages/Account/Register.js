@@ -3,7 +3,6 @@ import { Link,useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify';
 import axios from '../api/api'
 import { FaUsers } from "react-icons/fa";
-
 const URL = '/api/v1/register'
 
 const Register = () => {

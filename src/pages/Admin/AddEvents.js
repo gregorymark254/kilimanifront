@@ -24,7 +24,7 @@ const AddEvents = () => {
         withCredential : true
       })
       toast.success("Event Added")
-      setImage(null)
+      setImage('')
       setDate('')
       setTitle('')
       setLocation('')
@@ -86,8 +86,9 @@ const AddEvents = () => {
                     className="py-3 px-2 w-full bg-transparent border border-slate-300 focus:outline-none focus:border-sky-500 rounded-lg  focus:ring-1"
                     value={location}
                     onChange={(e) => setLocation(e.target.value)}>
+                    <option value="">Select</option>
                     <option value="Virtual Event">Virtual Event</option>
-                    <option value="In-person Event">In-person Event</option>
+                    <option value="In person Event">In-person Event</option>
                   </select>
                 </label>
               </div>
