@@ -49,12 +49,15 @@ const Login = () => {
 
 
   return (
-    <div>
+    <div className='bg-slate-100'>
       <section className="min-h-screen">
         <div className="container mx-auto p-4">
           <div className="flex items-center justify-center my-10">
-            <form onSubmit={handleSubmit}>
-              <h4 className="text-center">Login to your account..</h4>
+            <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg">
+              <div className="flex justify-center ">
+                <img width={50} src="https://static.vecteezy.com/system/resources/previews/011/423/100/original/kh-logo-k-h-design-white-kh-letter-kh-letter-logo-design-initial-letter-kh-linked-circle-uppercase-monogram-logo-vector.jpg" alt="" />
+              </div>
+              <h4 className="text-center">Log in to your account..</h4>
               <br />
               <div className="p-2">
                 <label htmlFor="email">

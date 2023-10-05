@@ -39,7 +39,7 @@ const Events = () => {
                     <div key={event._id} className="flex flex-wrap gap-6 bg-white rounded-lg p-4 mb-5">
                       <div>
                         <img
-                          width={400}
+                          width={300}
                           height={300}
                           src={event.image}
                           alt="eventimage"

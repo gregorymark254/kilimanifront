@@ -3,7 +3,6 @@ import { PiUsersFourFill,PiSpeakerSimpleSlashBold } from "react-icons/pi";
 import { FaHandsClapping,FaHeadset } from "react-icons/fa6";
 import { FaDonate } from "react-icons/fa";
 import { MdOutlineDateRange } from "react-icons/md";
-import { Link } from "react-router-dom";
 
 const Home = () => {
 
@@ -47,18 +46,18 @@ const Home = () => {
           <h3 className="text-center"><b>Getting Started</b></h3>
           <br />
           <div className="flex flex-wrap items-center justify-center gap-4 mb-10">
-            <Link to="/new" className="flex items-center justify-center space-x-3 p-4 border border-slate-300 rounded-lg md:w-1/3 lg:w-1/6 hover:bg-blue-600 hover:text-white">
+            <a href="/new" className="flex items-center justify-center space-x-3 p-4 border border-slate-300 rounded-lg md:w-1/3 lg:w-1/6 hover:bg-blue-600 hover:text-white">
               <h3><FaHandsClapping/></h3>
               <h4>I'M NEW</h4>
-            </Link>
-            <Link to="/help" className="flex items-center justify-center space-x-3 p-4 border border-slate-300 rounded-lg md:w-1/3 lg:w-1/6 hover:bg-blue-600 hover:text-white">
+            </a>
+            <a href="/help" className="flex items-center justify-center space-x-3 p-4 border border-slate-300 rounded-lg md:w-1/3 lg:w-1/6 hover:bg-blue-600 hover:text-white">
               <h3><FaHeadset/></h3>
               <h4>SUPPORT</h4>
-            </Link>
-            <Link to="/donate" className="flex items-center justify-center space-x-3 p-4 border border-slate-300 rounded-lg md:w-1/3 lg:w-1/6 hover:bg-blue-600 hover:text-white">
+            </a>
+            <a href="/donate" className="flex items-center justify-center space-x-3 p-4 border border-slate-300 rounded-lg md:w-1/3 lg:w-1/6 hover:bg-blue-600 hover:text-white">
               <h3><FaDonate/></h3>
               <h4>DONATE</h4>
-            </Link>
+            </a>
           </div>
         </div>
       </section>

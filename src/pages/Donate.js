@@ -28,7 +28,7 @@ const Donate = () => {
   return (
     <div className="min-h-screen">
       <div className="container mx-auto p-4">
-        <h1 className="text-3xl font-bold text-center mt-4">Make a donation</h1><br />
+        <h1 className="text-3xl font-bold text-center mt-8">Make a donation</h1><br />
         <div className="flex flex-wrap justify-center items-center">
           <form onSubmit={handleSubmit}>
             <div className="content">
@@ -47,7 +47,7 @@ const Donate = () => {
                 type="number" 
                 required
                 placeholder="amount"
-                className="py-3 px-2 bg-inherit border border-slate-300 placeholder-blue-300 focus:outline-none focus:border-sky-500 rounded-lg  focus:ring-1"
+                className="py-1.5 px-2 w-full border border-slate-300 focus:outline-none focus:border-sky-500 rounded-lg  focus:ring-1"
                 value={amount}
                 onChange={(e) => setAmount(e.target.value)}
               />

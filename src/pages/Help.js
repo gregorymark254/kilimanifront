@@ -38,7 +38,10 @@ const Help = () => {
       <section>
         <div className="container mx-auto p-4">
           <div className="md:mx-56">
-            <h2><b>Submit a request</b></h2>
+            <div className="mt-10 space-y-2">
+              <span className="text-blue-600">Have a question or proposal? <br />Ask us and get an answer.</span>
+              <h2><b>Submit a request</b></h2>
+            </div>
             <br />
             <div className="mb-10">
               <form onSubmit={handleSubmit}>
