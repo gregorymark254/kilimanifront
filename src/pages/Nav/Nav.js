@@ -35,7 +35,7 @@ const Nav = () => {
                 <a href="/" className="nav-links">Home</a>
               </li>
               <li className="nav-item">
-                <a href="/donate" className="nav-links">Donate</a>
+                <a href="/announcements" className="nav-links">Announcements</a>
               </li>
               <li className="nav-item">
                 <a target="_blank" rel="noreferrer" href="https://www.kilimani.org/" className="nav-links">Community</a>
