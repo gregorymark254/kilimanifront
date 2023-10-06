@@ -10,7 +10,7 @@ const Donate = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const response = await axios.post("https://577e-197-254-103-158.ngrok.io/api/v7/stk",
+      const response = await axios.post("http://localhost:4000/api/v7/stk",
       JSON.stringify({phone,amount}),
       {
         headers: {'Content-Type' : 'application/json'},
