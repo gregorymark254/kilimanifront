@@ -26,6 +26,7 @@ export const getPosts = createAsyncThunk('post/getPosts', async () => {
     try {
       const response = await axios.post(BASE_URL, { post: postData });
       dispatch(getPosts());
+      console.log(response)
     } catch (error) {
       // Handle errors
     }

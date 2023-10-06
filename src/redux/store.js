@@ -1,4 +1,4 @@
-import { configureStore, applyMiddleware } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 import postReducer from '../redux/post/postSlice'
 import userReducer from '../redux/user/userSlice'
 import commentReducer from '../redux/comment/commentSlice'
