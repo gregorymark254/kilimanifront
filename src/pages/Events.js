@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from "./api/api";
+import { MdEventAvailable } from "react-icons/md";
 
 const Events = () => {
 
@@ -25,9 +26,12 @@ const Events = () => {
   return (
     <div className='bg-slate-100 min-h-screen'>
       <div className="container mx-auto p-4">
-        <h1 class="text-center text-3xl font-bold mt-5">Events</h1><br />
+        <div className="flex justify-center mt-4">
+          <h1 className="text-blue-700"><MdEventAvailable/></h1>
+        </div>
+        <h1 class="text-center text-3xl">Events</h1><br />
         <div className="space-y-5 lg:mx-44 lg:w-2/3 mb-10">
-          <h3>Upcoming Events</h3>
+          <span className="text-xl font-light">Upcoming Events</span>
             {isLoading ? (
               <div>
                 <p>loading...</p>
@@ -39,25 +43,25 @@ const Events = () => {
                     <div key={event._id} className="flex flex-wrap gap-6 bg-white rounded-lg p-4 mb-5">
                       <div>
                         <img
-                          width={400}
+                          width={300}
                           height={300}
-                          src={`data:image/${event.image.contentType};base64,${event.image.data}`}
+                          src={event.image}
                           alt="eventimage"
                         />
                       </div>
-                      <div>
+                      <div className="w-2/4">
                         <h6 className="text-blue-600">{event.date}</h6>
                         <h3>{event.title}</h3>
                         <p>{event.location}</p>
                         <br />
-                        <details>
+                        <details className="hover:cursor-pointer">
                           <summary>More Details</summary>
                           <p>{event.about}</p>
                         </details>
                       </div>
                     </div>
                   ))
-                } 
+                }
               </div>
             )}
         </div>

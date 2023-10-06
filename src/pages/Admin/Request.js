@@ -3,7 +3,7 @@ import axios from '../api/api'
 import { Link } from 'react-router-dom'
 import { FaEdit } from 'react-icons/fa'
 import { MdDelete } from 'react-icons/md'
-
+import { BiSolidConversation } from "react-icons/bi";
 
 const Request = () => {
 
@@ -40,10 +40,13 @@ const Request = () => {
   return (
     <div className="min-h-screen">
       <div className="container mx-auto p-4">
+        <div className="flex justify-center">
+          <h1 className="text-blue-700"><BiSolidConversation/></h1>
+        </div>
         <h1 class="text-3xl text-center font-bold mb-10">Support Request</h1>
         <div className="border border-slate-300 ">
           <table className="text-sm text-left w-full">
-            <thead className="text-gray-700 bg-gray-50 ">
+            <thead className="text-gray-700 bg-blue-200">
               <tr>
                 <th className="py-3 px-6">No.</th>
                 <th className="py-3 px-6">
@@ -93,8 +96,8 @@ const Request = () => {
                       <td className="py-4 px-6">{proposal.description}</td>
                       <td className="py-4 px-6">{proposal.file}</td>
                       <td className="flex items-center text-xl py-4 px-6 space-x-2">
-                        <Link to={`/users/edit/${proposal._id}`} className="bg-teal-500 p-1 text-md text-white mr-1"><FaEdit/></Link>
-                        <button onClick={() => deleteUser(proposal._id)} className="bg-red-500 p-1 text-md text-white"><MdDelete/></button>
+                        <Link to={`/users/edit/${proposal._id}`} className="bg-teal-500 p-2 rounded-lg text-md text-white mr-1"><FaEdit/></Link>
+                        <button onClick={() => deleteUser(proposal._id)} className="bg-red-500 p-2 rounded-lg text-md text-white"><MdDelete/></button>
                       </td>
                     </tr>
                   ))

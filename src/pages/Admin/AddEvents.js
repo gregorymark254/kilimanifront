@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { toast } from 'react-toastify';
 import axios from '../api/api'
+import { MdOutlineEvent } from "react-icons/md";
 
 const URL ="/api/v6/events"
 
@@ -23,7 +24,7 @@ const AddEvents = () => {
         withCredential : true
       })
       toast.success("Event Added")
-      setImage(null)
+      setImage('')
       setDate('')
       setTitle('')
       setLocation('')
@@ -38,7 +39,10 @@ const AddEvents = () => {
   return (
     <div className="min-h-screen">
       <div className="container mx-auto p-4">
-        <h1 className="text-center text-3xl font-bold mt-5">Add Events</h1><br />
+        <div className="flex justify-center mt-4">
+          <h1 className="text-blue-700"><MdOutlineEvent/></h1>
+        </div>
+        <h1 className="text-center text-3xl font-bold">Add Events</h1><br />
         <div className="flex flex-wrap items-center justify-center">
           <form onSubmit={handleSubmit}>
             <div className="p-1">
@@ -82,8 +86,9 @@ const AddEvents = () => {
                     className="py-3 px-2 w-full bg-transparent border border-slate-300 focus:outline-none focus:border-sky-500 rounded-lg  focus:ring-1"
                     value={location}
                     onChange={(e) => setLocation(e.target.value)}>
+                    <option value="">Select</option>
                     <option value="Virtual Event">Virtual Event</option>
-                    <option value="In-person Event">In-person Event</option>
+                    <option value="In person Event">In-person Event</option>
                   </select>
                 </label>
               </div>

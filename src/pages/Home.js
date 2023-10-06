@@ -1,33 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { PiUsersFourFill,PiSpeakerSimpleSlashBold } from "react-icons/pi";
-import { FaHandsClapping,FaHeadset,FaComments } from "react-icons/fa6";
+import { FaHandsClapping,FaHeadset } from "react-icons/fa6";
+import { FaDonate } from "react-icons/fa";
 import { MdOutlineDateRange } from "react-icons/md";
-import { Link } from "react-router-dom";
-import axios from "./api/api";
-import { AuthState } from './Context/AuthContext'
 
 const Home = () => {
-
-  const [blogs, setBlogs] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const { state : { like }, dispatch } = AuthState()
-
-  //getting billing data
-  const getBlog = async () => {
-    const response = await axios.get("/api/v2/all");
-    setBlogs(response.data);
-  };
-
-  useEffect(() => {
-    getBlog();
-  }, []);
-
-  //seting loading
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
-  })
 
   return (
     <div className='bg-slate-100'>
@@ -37,7 +14,7 @@ const Home = () => {
           <div className="container mx-auto p-4">
             <div className="flex item-center justify-center">
               <div>
-                <h1><b>KH</b> community</h1>
+                <h1 className="text-5xl"><b>KH</b> community</h1>
                 <br />
                 <div>
                   <form action="">
@@ -69,18 +46,18 @@ const Home = () => {
           <h3 className="text-center"><b>Getting Started</b></h3>
           <br />
           <div className="flex flex-wrap items-center justify-center gap-4 mb-10">
-            <Link to="/new" className="flex items-center justify-center space-x-3 p-4 border border-slate-300 rounded-lg md:w-1/3 lg:w-1/6 hover:bg-blue-600 hover:text-white">
+            <a href="/new" className="flex items-center justify-center space-x-3 p-4 border border-slate-300 rounded-lg md:w-1/3 lg:w-1/6 hover:bg-blue-600 hover:text-white">
               <h3><FaHandsClapping/></h3>
               <h4>I'M NEW</h4>
-            </Link>
-            <Link to="/help" className="flex items-center justify-center space-x-3 p-4 border border-slate-300 rounded-lg md:w-1/3 lg:w-1/6 hover:bg-blue-600 hover:text-white">
+            </a>
+            <a href="/help" className="flex items-center justify-center space-x-3 p-4 border border-slate-300 rounded-lg md:w-1/3 lg:w-1/6 hover:bg-blue-600 hover:text-white">
               <h3><FaHeadset/></h3>
               <h4>SUPPORT</h4>
-            </Link>
-            <Link to="/announcements" className="flex items-center justify-center space-x-3 p-4 border border-slate-300 rounded-lg md:w-1/3 lg:w-1/6 hover:bg-blue-600 hover:text-white">
-              <h3><FaComments/></h3>
-              <h4>DISCUSSIONS</h4>
-            </Link>
+            </a>
+            <a href="/donate" className="flex items-center justify-center space-x-3 p-4 border border-slate-300 rounded-lg md:w-1/3 lg:w-1/6 hover:bg-blue-600 hover:text-white">
+              <h3><FaDonate/></h3>
+              <h4>DONATE</h4>
+            </a>
           </div>
         </div>
       </section>
@@ -90,66 +67,24 @@ const Home = () => {
         <div className="container mx-auto p-4">
           <h3 className="md:mx-52 lg:mx-72">Features</h3>
           <div className="flex flex-wrap items-center justify-center gap-5 my-10">
-            <div className="p-8 bg-white rounded-lg space-y-1 md:w-1/3 lg:w-1/5"> 
+            <a href="/events" className="p-8 bg-white rounded-lg space-y-1 md:w-1/3 lg:w-1/5"> 
               <h2 className="text-blue-600"><MdOutlineDateRange/></h2>
               <h4>Events</h4>
-              <p className="hover:text-blue-600"><u><Link to="/events">Get Started..</Link></u></p>
-            </div>
-            <div className="p-8 bg-white rounded-lg space-y-1 md:w-1/3 lg:w-1/5"> 
+              <p className="hover:text-blue-600"><u>Get Started..</u></p>
+            </a>
+            <a href="/noise" className="p-8 bg-white rounded-lg space-y-1 md:w-1/3 lg:w-1/5"> 
               <h2 className="text-red-500"><PiSpeakerSimpleSlashBold/></h2>
               <h4>Noise Reports</h4>
-              <p className="hover:text-blue-600"><u><Link to="/noisereports">Get Started..</Link></u></p>
-            </div>
-            <div className="p-8 bg-white rounded-lg space-y-1 md:w-1/3 lg:w-1/5">
+              <p className="hover:text-blue-600"><u>Get Started..</u></p>
+            </a>
+            <a href="/public" className="p-8 bg-white rounded-lg space-y-1 md:w-1/3 lg:w-1/5">
               <h2 className="text-amber-950"><PiUsersFourFill/></h2>
               <h4>Public participation</h4>
-              <p className="hover:text-blue-600"><u><Link to="/public">Get Started..</Link></u></p>
-            </div>
+              <p className="hover:text-blue-600"><u>Get Started..</u></p>
+            </a>
           </div>
         </div>
       </section>
-      
-      {/* Discussions */}
-      <section>
-        <div className="container mx-auto p-4">
-          <div className='bg-white lg:mx-72 rounded-lg mb-20'>
-           <div className="p-4">
-            <h3><b>Open For Discussions</b></h3>
-            <h4><u><i>Public Activities</i></u></h4>
-            <div>
-              {isLoading ? (
-                <div>
-                  <p>loading...</p>
-                </div>
-              ) : (
-                <div>
-                  {
-                    blogs.map((blog,index) => (
-                      <div key={blog._id} className="p-4 space-y-1">
-                        <h4><b>{blog.subject}</b></h4>
-                        <h5>{blog.description}</h5>
-                        <span>{blog.createdAt}</span>
-                        <div className="flex flex-wrap items-center space-x-2">
-                          <Link to={`/comment/${blog._id}`} className="bg-blue-500 p-1 text-md text-white">Comment</Link>
-                          {like.some((d) => d._id === blog._id) ? (
-                            <button onClick={() => {dispatch({type: 'UNLIKE', payload:blog})}}  className="bg-orange-500 p-1 text-md text-white">Unlike</button>
-                          ) : (
-                            <button onClick={() => {dispatch({type: 'LIKE', payload:blog})}} className="bg-red-500 p-1 text-md text-white">Like</button>
-                          )} 
-                          <span>{like.filter((d) => d._id === blog._id).length}</span>
-                        </div>
-                        <br />
-                        <hr />
-                      </div>
-                    ))
-                  }   
-                </div>
-              )}
-            </div>
-           </div>
-          </div>
-        </div>
-      </section> 
     </div>
   )
 }

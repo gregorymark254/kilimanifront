@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { FaRegFile,FaUsers } from "react-icons/fa";
+import { FaRegFile,FaUsers,FaQuestion } from "react-icons/fa";
 import { MdRecordVoiceOver,MdWifiCalling3 } from "react-icons/md";
 import { toast } from 'react-toastify';
 import axios from './api/api'
@@ -38,7 +38,13 @@ const Help = () => {
       <section>
         <div className="container mx-auto p-4">
           <div className="md:mx-56">
-            <h2><b>Submit a request</b></h2>
+            <div className="mt-10 space-y-2 text-center">
+              <div className="flex justify-center mt-4">
+                <h1 className="text-blue-700"><FaQuestion/></h1>
+              </div>
+              <h2><b>Submit a request</b></h2>
+              <span className="text-blue-600">Have a question or proposal? Ask us and get an answer.</span>
+            </div>
             <br />
             <div className="mb-10">
               <form onSubmit={handleSubmit}>

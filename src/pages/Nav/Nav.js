@@ -35,28 +35,29 @@ const Nav = () => {
                 <a href="/" className="nav-links">Home</a>
               </li>
               <li className="nav-item">
-                <a href="/donate" className="nav-links">Donate</a>
+                <a href="/events" className="nav-links">Events</a>
               </li>
               <li className="nav-item">
-                <a target="_blank" rel="noreferrer" href="https://www.kilimani.org/" className="nav-links">Community</a>
+                <a href="/public" className="nav-links">Ideas</a>
               </li>
+              
               {userInfo ? (
                 <div>
                   {userInfo.isAdmin === 'Admin' ? (
                     //admin navbar
                     <div className="dropdown inline-block relative">
-                      <button className="bg-gray-300 text-gray-700 font-semibold py-2 px-4 rounded inline-flex items-center">
+                      <button className="font-semibold py-2 px-4 rounded inline-flex items-center">
                         <span className="mr-1">{userInfo.email}</span>
                         <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/> </svg>
                       </button>
                       <ul className="dropdown-menu absolute hidden text-gray-700 pt-1">
-                        <li><a className="bg-gray-200 hover:bg-red-400 py-2 px-4 block whitespace-no-wrap" href="/admin">Admin</a></li>
-                        <li><a className="bg-gray-200 hover:bg-red-400 py-2 px-4 block whitespace-no-wrap" href="/users">Users</a></li>
-                        <li><a className="bg-gray-200 hover:bg-red-400 py-2 px-4 block whitespace-no-wrap" href="/createblogs">Create Blogs</a></li>
-                        <li><a className="bg-gray-200 hover:bg-red-400 py-2 px-4 block whitespace-no-wrap" href="/proposals">Support Request</a></li>
-                        <li><a className="bg-gray-200 hover:bg-red-400 py-2 px-4 block whitespace-no-wrap" href="/createvote">Create vote</a></li>
-                        <li><a className="bg-gray-200 hover:bg-red-400 py-2 px-4 block whitespace-no-wrap" href="/addevents">Add Events</a></li>
-                        <li><a onClick={signOut} className="bg-gray-200 hover:bg-red-400 py-2 px-4 block whitespace-no-wrap" href="#/">Log Out</a></li>
+                        <li><a className="bg-slate-50 hover:bg-blue-400 py-2 px-4 block whitespace-no-wrap" href="/admin">Admin</a></li>
+                        <li><a className="bg-slate-50 hover:bg-blue-400 py-2 px-4 block whitespace-no-wrap" href="/users">Users</a></li>
+                        <li><a className="bg-slate-50 hover:bg-blue-400 py-2 px-4 block whitespace-no-wrap" href="/createblogs">Create Blogs</a></li>
+                        <li><a className="bg-slate-50 hover:bg-blue-400 py-2 px-4 block whitespace-no-wrap" href="/proposals">Support Request</a></li>
+                        <li><a className="bg-slate-50 hover:bg-blue-400 py-2 px-4 block whitespace-no-wrap" href="/createvote">Create vote</a></li>
+                        <li><a className="bg-slate-50 hover:bg-blue-400 py-2 px-4 block whitespace-no-wrap" href="/addevents">Add Events</a></li>
+                        <li><a onClick={signOut} className="bg-slate-50 hover:bg-blue-400 py-2 px-4 block whitespace-no-wrap" href="#/">Log Out</a></li>
                       </ul>
                     </div>   
                   ) : (
@@ -67,11 +68,7 @@ const Nav = () => {
                         <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/> </svg>
                       </button>
                       <ul className="dropdown-menu absolute hidden text-gray-700 pt-1">
-                        <li><a className="bg-gray-200 hover:bg-red-400 py-2 px-4 block whitespace-no-wrap" href="/events">Events</a></li>
-                        <li><a className="bg-gray-200 hover:bg-red-400 py-2 px-4 block whitespace-no-wrap" href="/vote">Polls</a></li>
-                        <li><a className="bg-gray-200 hover:bg-red-400 py-2 px-4 block whitespace-no-wrap" href="/vote">Public Posts</a></li>
-                        <li><a className="bg-gray-200 hover:bg-red-400 py-2 px-4 block whitespace-no-wrap" href="#/">Profile</a></li>
-                        <li><a onClick={signOut} className="bg-gray-200 hover:bg-red-400 py-2 px-4 block whitespace-no-wrap" href="#/">Log Out</a></li>
+                        <li><a onClick={signOut} className="bg-slate-50 hover:bg-blue-400 py-2 px-4 block whitespace-no-wrap" href="#/">Log Out</a></li>
                       </ul>
                     </div>   
                   )}         
@@ -82,6 +79,9 @@ const Nav = () => {
                   </li>
                 )
               }
+              <li className="nav-item">
+                <a href="/donate" className="bg-white text-black px-4 py-2 rounded-lg">Donate</a>
+              </li>
             </ul>
             <div className="nav-icon" onClick={handleClick}>
               <span><FaBars/></span>
