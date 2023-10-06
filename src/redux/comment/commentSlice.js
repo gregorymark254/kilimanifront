@@ -20,6 +20,7 @@ export const createComment = (data) => async () => {
   const newComment = { comment_id: comment.id, text}
 
   const response = await axios.post(`${BASE_URL}/id`, newComment)
+  console.log(`${BASE_URL}/id`);
   return response.data
 }
 

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getPosts, likePost } from '../redux/post/postSlice';
+import { addCommentToPost, getPosts, likePost } from '../redux/post/postSlice';
 
 const Public = () => {
   const dispatch = useDispatch();
@@ -14,6 +14,16 @@ const Public = () => {
   const handleCommentClick = (postId) => {
     // Handle comment button click, e.g., navigate to the comment page for the post
     console.log(`Comment clicked for post ${postId}`);
+  };
+
+  const handleAddComment = async (postId, commentText) => {
+    try {
+      await dispatch(addCommentToPost({ postId, commentText }));
+      // Clear the comment input field or handle success as needed
+    } catch (error) {
+      // Handle any errors if necessary
+      console.error('Error adding comment:', error);
+    }
   };
 
   const handleLikeClick = async (postId) => {
@@ -62,6 +72,7 @@ const Public = () => {
                           >
                             Comment
                           </button>
+                          
                           <button
                             onClick={() => handleLikeClick(post.id)}
                             className="bg-red-500 p-1 text-md text-white"

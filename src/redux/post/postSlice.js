@@ -7,7 +7,6 @@ const initialState = {
   posts: [],
   isLoading: false,
   error: null,
-  userLikes: [],
 };
 
 export const getPosts = createAsyncThunk('post/getPosts', async () => {
@@ -16,7 +15,6 @@ export const getPosts = createAsyncThunk('post/getPosts', async () => {
     return result.data;
   });
 
-  // Define a new async thunk for fetching post details
   export const getPostDetails = createAsyncThunk('post/getPostDetails', async (postId) => {
     const response = await axios.get(`/api/v1/posts/${postId}`);
     return response.data;
@@ -27,7 +25,6 @@ export const getPosts = createAsyncThunk('post/getPosts', async () => {
       const response = await axios.post(BASE_URL, { post: postData });
       dispatch(getPosts());
     } catch (error) {
-      // Handle errors
     }
   };
 
@@ -40,6 +37,16 @@ export const createNewPost = createAsyncThunk('posts/createNewPost', async (post
   const response = await axios.post(BASE_URL, postData);
   return response.data;
 });
+
+export const addCommentToPost = createAsyncThunk(
+  'post/addCommentToPost',
+  async ({ postId, commentText }) => {
+    const response = await axios.post(`/api/v1/posts/${postId}/comments`, {
+      comment: commentText,
+    });
+    return response.data;
+  }
+);
 
 const postSlice = createSlice({
   name: 'posts',
@@ -82,7 +89,22 @@ const postSlice = createSlice({
       .addCase(createNewPost.rejected, (state) => {
         state.isLoading = false;
       })
-      
+      .addCase(addCommentToPost.fulfilled, (state, action) => {
+        state.isLoading = false;
+        const { postId, comment } = action.payload;
+        // Find the post by ID and add the new comment to its comments array
+        state.posts = state.posts.map((post) =>
+          post.id === postId
+            ? {
+                ...post,
+                comments: [...post.comments, comment],
+              }
+            : post
+        );
+      })
+      .addCase(addCommentToPost.rejected, (state) => {
+        state.isLoading = false;
+      });
   },
 });
 
