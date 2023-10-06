@@ -20,8 +20,8 @@ const Home = () => {
                   <form action="">
                     <div className="flex flex-wrap items-center justify-center gap-4">
                       <label htmlFor="search">
-                        <input 
-                          type="search" 
+                        <input
+                          type="search"
                           placeholder="Search..."
                           required
                           name="search"
@@ -67,12 +67,12 @@ const Home = () => {
         <div className="container mx-auto p-4">
           <h3 className="md:mx-52 lg:mx-72">Features</h3>
           <div className="flex flex-wrap items-center justify-center gap-5 my-10">
-            <a href="/events" className="p-8 bg-white rounded-lg space-y-1 md:w-1/3 lg:w-1/5"> 
+            <a href="/events" className="p-8 bg-white rounded-lg space-y-1 md:w-1/3 lg:w-1/5">
               <h2 className="text-blue-600"><MdOutlineDateRange/></h2>
               <h4>Events</h4>
               <p className="hover:text-blue-600"><u>Get Started..</u></p>
             </a>
-            <a href="/noise" className="p-8 bg-white rounded-lg space-y-1 md:w-1/3 lg:w-1/5"> 
+            <a href="https://blynk.cloud/dashboard/128100/global/filter/863671/organization/128100/devices/492809/dashboard" className="p-8 bg-white rounded-lg space-y-1 md:w-1/3 lg:w-1/5">
               <h2 className="text-red-500"><PiSpeakerSimpleSlashBold/></h2>
               <h4>Noise Reports</h4>
               <p className="hover:text-blue-600"><u>Get Started..</u></p>

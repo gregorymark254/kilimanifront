@@ -38,9 +38,9 @@ const Nav = () => {
                 <a href="/events" className="nav-links">Events</a>
               </li>
               <li className="nav-item">
-                <a href="/public" className="nav-links">Ideas</a>
+                <a href="/public" className="nav-links">Forum</a>
               </li>
-              
+
               {userInfo ? (
                 <div>
                   {userInfo.isAdmin === 'Admin' ? (
@@ -59,7 +59,7 @@ const Nav = () => {
                         <li><a className="bg-slate-50 hover:bg-blue-400 py-2 px-4 block whitespace-no-wrap" href="/addevents">Add Events</a></li>
                         <li><a onClick={signOut} className="bg-slate-50 hover:bg-blue-400 py-2 px-4 block whitespace-no-wrap" href="#/">Log Out</a></li>
                       </ul>
-                    </div>   
+                    </div>
                   ) : (
                     // user navbar
                     <div className="dropdown inline-block relative">
@@ -70,10 +70,10 @@ const Nav = () => {
                       <ul className="dropdown-menu absolute hidden text-gray-700 pt-1">
                         <li><a onClick={signOut} className="bg-slate-50 hover:bg-blue-400 py-2 px-4 block whitespace-no-wrap" href="#/">Log Out</a></li>
                       </ul>
-                    </div>   
-                  )}         
+                    </div>
+                  )}
                 </div>
-                ) : (                
+                ) : (
                   <li className="nav-item">
                     <a href="/login" className="nav-links">Sign In</a>
                   </li>
@@ -88,7 +88,7 @@ const Nav = () => {
             </div>
           </nav>
         </div>
-      </div> 
+      </div>
     </main>
   )
 }

@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addCommentToPost, getPosts, likePost } from '../redux/post/postSlice';
+import { FcLike } from "react-icons/fc";
+import { MdOutlineKeyboardHide } from "react-icons/md";
+import { FaComments } from "react-icons/fa6";
 
 const Public = () => {
   const dispatch = useDispatch();
@@ -108,15 +111,15 @@ const Public = () => {
                         <div className="flex flex-wrap items-center space-x-2">
                           <button
                             onClick={() => toggleComments(post.id)}
-                            className="bg-blue-500 p-1 text-md text-white"
+                            className="px-1 py-2 text-2xl text-blue-700"
                           >
-                            {postIdToComment === post.id ? 'Hide Comments' : 'Show Comments'}
+                            {postIdToComment === post.id ? <MdOutlineKeyboardHide/> : <FaComments/>}
                           </button>
                           <button
                             onClick={() => handleLikeClick(post.id)}
-                            className="bg-red-500 p-1 text-md text-white"
+                            className="text-2xl"
                           >
-                            Like
+                            <FcLike/>
                           </button>
                         </div>
                         {postIdToComment === post.id && (
