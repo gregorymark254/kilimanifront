@@ -16,7 +16,6 @@ import Register from'./pages/Account/Register'
 import Footer from './pages/Footer'
 import Admin from './pages/Admin/Admin'
 import CreateBlog from './pages/CreateBlog'
-import Noise from './pages/Noise'
 import Request from './pages/Admin/Request'
 import Users from './pages/Admin/Users'
 import EditUser from './pages/Admin/EditUser'
@@ -48,7 +47,6 @@ function App() {
         <Route path="/admin" element={<Admin />} />
         <Route path="/addevents" element={<AddEvents />} />
         <Route path="/createblogs" element={<CreateBlog />} />
-        <Route path="/noisereports" element={<Noise />} />
         <Route path="/proposals" element={<Request />} />
         <Route path="/users" element={<Users />} />
         <Route path="/users/edit/:id" element={<EditUser />} />
