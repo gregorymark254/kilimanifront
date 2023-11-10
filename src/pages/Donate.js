@@ -47,7 +47,7 @@ const Donate = () => {
                 type="number" 
                 required
                 placeholder="amount"
-                className="py-3 px-2 bg-inherit border border-slate-300 placeholder-blue-300 focus:outline-none focus:border-sky-500 rounded-lg  focus:ring-1"
+                className="w-80 py-3 px-2 bg-inherit border border-slate-300 placeholder-blue-300 focus:outline-none focus:border-sky-500 rounded-lg  focus:ring-1"
                 value={amount}
                 onChange={(e) => setAmount(e.target.value)}
               />
