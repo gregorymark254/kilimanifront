@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { PiUsersFourFill,PiSpeakerSimpleSlashBold } from "react-icons/pi";
 import { FaHandsClapping,FaHeadset,FaComments } from "react-icons/fa6";
-import { BsFillArrowRightCircleFill } from "react-icons/bs"
 import { MdOutlineDateRange } from "react-icons/md";
 import { Link } from "react-router-dom";
 import axios from "./api/api";

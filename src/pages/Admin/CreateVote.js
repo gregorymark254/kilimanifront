@@ -63,9 +63,9 @@ const CreateVote = () => {
     <div className="min-h-screen">
       <div className="container mx-auto p-4">
         <h1 className="text-center text-3xl font-bold mb-5 mt-5">Create opinion poll</h1>
-        <div className="flex flex-wrap items-center justify-center">
-          <form className='w-100' onSubmit={handleSubmit}>
-            <div className="flex jusify-center items-center p-2">
+        <div className="flex items-center justify-center">
+          <form onSubmit={handleSubmit}>
+            <div className="flex justify-center items-center p-2">
               <label htmlFor="question">Question <br />
                 <input 
                   type="text" 
