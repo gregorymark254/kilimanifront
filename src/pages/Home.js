@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { PiUsersFourFill,PiSpeakerSimpleSlashBold } from "react-icons/pi";
 import { FaHandsClapping,FaHeadset,FaComments } from "react-icons/fa6";
+import { BsFillArrowRightCircleFill } from "react-icons/bs"
 import { MdOutlineDateRange } from "react-icons/md";
 import { Link } from "react-router-dom";
 import axios from "./api/api";
@@ -89,21 +90,21 @@ const Home = () => {
       <section>
         <div className="container mx-auto p-4">
           <h3 className="md:mx-52 lg:mx-72">Features</h3>
-          <div className="flex flex-wrap items-center justify-center gap-5 my-10">
-            <div className="p-8 bg-white rounded-lg space-y-1 md:w-1/3 lg:w-1/5"> 
+          <div className="flex flex-wrap justify-center items-center gap-5 my-10">
+            <div className="p-8 bg-white rounded-lg space-y-1 md:w-1/3 lg:w-1/5 flex flex-col justify-center items-center"> 
               <h2 className="text-blue-600"><MdOutlineDateRange/></h2>
               <h4>Events</h4>
-              <p className="hover:text-blue-600"><u><Link to="/events">Get Started..</Link></u></p>
+              <p className="hover:text-blue-600"><u className="no-underline"><Link to="/events">Visit page </Link></u></p>
             </div>
-            <div className="p-8 bg-white rounded-lg space-y-1 md:w-1/3 lg:w-1/5"> 
+            <div className="p-8 bg-white rounded-lg space-y-1 md:w-1/3 lg:w-1/5 flex flex-col justify-center items-center"> 
               <h2 className="text-red-500"><PiSpeakerSimpleSlashBold/></h2>
               <h4>Noise Reports</h4>
-              <p className="hover:text-blue-600"><u><Link to="/noisereports">Get Started..</Link></u></p>
+              <p className="hover:text-blue-600 text-center"><u className="no-underline"><Link to="/noisereports">Visit page</Link></u></p>
             </div>
-            <div className="p-8 bg-white rounded-lg space-y-1 md:w-1/3 lg:w-1/5">
+            <div className="p-8 bg-white rounded-lg space-y-1 md:w-1/3 lg:w-1/5 flex flex-col justify-center items-center">
               <h2 className="text-amber-950"><PiUsersFourFill/></h2>
               <h4>Public participation</h4>
-              <p className="hover:text-blue-600"><u><Link to="/public">Get Started..</Link></u></p>
+              <p className="hover:text-blue-600 text-center"><u className="no-underline"><Link to="/public">Visit page</Link></u></p>
             </div>
           </div>
         </div>
@@ -115,7 +116,7 @@ const Home = () => {
           <div className='bg-white lg:mx-72 rounded-lg mb-20'>
            <div className="p-4">
             <h3><b>Open For Discussions</b></h3>
-            <h4><u><i>Public Activities</i></u></h4>
+            <h4><u className="no-underline"><i>Public Activities</i></u></h4>
             <div>
               {isLoading ? (
                 <div>
