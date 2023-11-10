@@ -63,15 +63,15 @@ const CreateVote = () => {
     <div className="min-h-screen">
       <div className="container mx-auto p-4">
         <h1 className="text-center text-3xl font-bold mb-5 mt-5">Create opinion poll</h1>
-        <div className="flex items-center">
+        <div className="flex items-center justify-center">
           <form onSubmit={handleSubmit}>
-            <div className="p-2">
+            <div className="flex justify-center items-center p-2">
               <label htmlFor="question">Question <br />
                 <input 
                   type="text" 
                   required
                   placeholder="Create Question"
-                  className="px-2 py-3 border border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 rounded-lg focus:ring-1"
+                  className="mt-2 w-60 px-2 py-3 border border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 rounded-lg focus:ring-1"
                   value={votequestion}
                   onChange={(e) => setQuestion(e.target.value)}
                 />
@@ -84,7 +84,7 @@ const CreateVote = () => {
                   value={text}
                   placeholder="Message"
                   onChange={(e) => setText(e.target.value)}
-                  className="px-2 py-3 border border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 rounded-lg focus:ring-1"
+                  className="w-60 px-2 py-3 border border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 rounded-lg focus:ring-1"
                 ></textarea>
               </label>
             </div>

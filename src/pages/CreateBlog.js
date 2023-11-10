@@ -23,7 +23,7 @@ const CreateBlog = ({post}) => {
         </div>
         <h2 className="text-center p-4 font-light">Public Participation</h2>
         <div className="flex flex-wrap items-center justify-center mb-20">
-          <div className="bg-white p-4 rounded-lg">
+          <div className="w-full bg-white p-4 rounded-lg">
             <form onSubmit={handleSubmit}>
               <div className="p-2">
                 <label htmlFor="title">Title</label><br />
@@ -45,13 +45,13 @@ const CreateBlog = ({post}) => {
                   rows="10"
                   required
                   placeholder="Add as many details as possible to make it easier for others to reply!"
-                  className="py-3 px-2 border border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500  rounded-lg  focus:ring-1"
+                  className="w-full py-3 px-2 border border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500  rounded-lg  focus:ring-1"
                   value={text}
                   onChange={(e) => setText(e.target.value)}
                 ></textarea>
               </div>
-              <div className="p-2">
-                <button className="py-2 px-5 bg-blue-600 text-white rounded-lg w-full hover:bg-blue-700">Post</button>
+              <div className="flex justify-center p-2">
+                <button className="py-4 px-6 bg-blue-600 text-white rounded-lg">Post</button>
               </div>
             </form>
           </div>
