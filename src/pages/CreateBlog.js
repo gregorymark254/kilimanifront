@@ -30,6 +30,7 @@ const CreateBlog = ({post}) => {
                 <input
                   type="text"
                   placeholder="Add title here"
+                  name="title"
                   required
                   className="py-3 px-2 w-full border border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500  rounded-lg  focus:ring-1"
                   value={title}
