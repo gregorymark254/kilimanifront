@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:3000/api/v1/users/1/posts';
+const BASE_URL = 'https://a247-105-160-21-36.ngrok.io/api/v1/users/1/posts';
 
 const initialState = {
   posts: [],
