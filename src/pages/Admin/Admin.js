@@ -33,9 +33,9 @@ const Admin = () => {
           <div className="p-4">
             <ul>
               <li className="hover:underline"><a href="/users">&#x27A4; Users</a></li>
-              <li className="hover:underline"><a href="/blogs">&#x27A4; Community Forum</a></li>
+              {/* <li className="hover:underline"><a href="/blogs">&#x27A4; Community Forum</a></li> */}
               <li className="hover:underline"><a href="/proposals">&#x27A4; View Requests</a></li>
-              <li className="hover:underline"><a href="/createvote">&#x27A4; Create Vote</a></li>
+              <li className="hover:underline"><a href="/createblogs">&#x27A4; Create Disussion</a></li>
               <li className="hover:underline"><a href="/addevents">&#x27A4; Add Events</a></li>
             </ul>
           </div>

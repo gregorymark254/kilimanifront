@@ -96,7 +96,7 @@ const Request = () => {
                       <td className="py-4 px-6">{proposal.description}</td>
                       <td className="py-4 px-6">{proposal.file}</td>
                       <td className="flex items-center text-xl py-4 px-6 space-x-2">
-                        <Link to={`/users/edit/${proposal._id}`} className="bg-teal-500 p-2 rounded-lg text-md text-white mr-1"><FaEdit/></Link>
+                        {/* <Link to={`/users/edit/${proposal._id}`} className="bg-teal-500 p-2 rounded-lg text-md text-white mr-1"><FaEdit/></Link> */}
                         <button onClick={() => deleteUser(proposal._id)} className="bg-red-500 p-2 rounded-lg text-md text-white"><MdDelete/></button>
                       </td>
                     </tr>

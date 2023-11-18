@@ -17,7 +17,7 @@ const Donate = () => {
         withCredential : true
       })
       console.log(response?.message)
-      toast.success("Donation Succesful")
+      toast.success("Request Sent!")
     } catch (error) {
       console.log(error)
       console.log(error?.response)
@@ -33,9 +33,9 @@ const Donate = () => {
           <form onSubmit={handleSubmit}>
             <div className="content">
               <span className="prefix">+254</span>
-              <input 
-                type="tel" 
-                name="input" 
+              <input
+                type="tel"
+                name="input"
                 placeholder="000 000 0000"
                 className="input"
                 value={phone}
@@ -43,8 +43,8 @@ const Donate = () => {
               />
             </div>
             <div className="p-2">
-              <input 
-                type="number" 
+              <input
+                type="number"
                 required
                 placeholder="amount"
                 className="py-1.5 px-2 w-full border border-slate-300 focus:outline-none focus:border-sky-500 rounded-lg  focus:ring-1"

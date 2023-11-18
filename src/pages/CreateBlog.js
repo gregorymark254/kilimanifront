@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { createPost } from '../redux/post/postSlice';
 import { PiUsersFourFill } from "react-icons/pi";
+import {toast} from 'react-toastify'
 
 const CreateBlog = ({post}) => {
   const dispatch = useDispatch();
@@ -13,6 +14,7 @@ const CreateBlog = ({post}) => {
     dispatch(createPost({ post, title, text }));
     setTitle('');
     setText('');
+    toast.succes("Blog added succesful")
   };
 
   return (
@@ -24,6 +26,7 @@ const CreateBlog = ({post}) => {
         <h2 className="text-center p-4 font-light">Public Participation</h2>
         <div className="flex flex-wrap items-center justify-center mb-20">
           <div className="bg-white p-4 rounded-lg">
+          <p className='text-center'>Create blog</p>
             <form onSubmit={handleSubmit}>
               <div className="p-2">
                 <label htmlFor="title">Title</label><br />
