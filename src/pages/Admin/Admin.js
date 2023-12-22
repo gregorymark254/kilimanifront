@@ -29,6 +29,7 @@ const Admin = () => {
         <h3 className="text-center mt-5">Welcome {userInfo.email}</h3>
 
         <div className='flex flex-col justify-center items-center mt-10'>
+          <Link className='hover:underline hover:text-blue-600' to="/ADMIN">aDMIN</Link><br />
           <Link className='hover:underline hover:text-blue-600' to="/users">Users</Link><br />
           <Link className='hover:text-blue-600 hover:underline' to="/blogs">Community Forum</Link><br />
           <Link className='hover:text-blue-600 hover:underline' to="/proposals">View Requests</Link><br />
